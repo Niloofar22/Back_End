@@ -3,12 +3,37 @@ using System.Collections.Generic;
 
 namespace MvcApi.Model
 {
-    public class Movie
+
+     class Movie
     {
-       public int MovieId { get; set; }
-        public string MovieName { get; set; }
-        public string Genre { get; set; }
-        public virtual ICollection<Actor> Actors { get; set; }
+        public int Title { get; set; }
+        public string Overview { get; set; }
+        public string Orginal_language { get; set; }
+        //public virtual ICollection<Actor> Actors { get; set; }
+
+        public static int SearchForMoviByid()
+        {
+            while (true)
+            {
+                Console.Write("Enter Id for a movie:");
+                if(int.TryParse(Console.ReadLine(), out int movieId))
+                {
+                    return movieId;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input");
+                }
+            }
+        }
+        public void DisplayMovie()
+        {
+            Console.Clear();
+            Console.WriteLine("⁄Title: {0}", Title);
+            Console.WriteLine("⁄Language: {0}", Orginal_language);
+            Console.WriteLine("⁄overview: {0}", Overview);
+        }
+
+        }
     }
 
-}
